@@ -1,21 +1,22 @@
 # ROLL x Ascend
 
-最后更新：2026/03/13。
+最后更新：2026/05/14。
 
 我们在 ROLL 上增加对华为昇腾设备的支持。
 
 ## 硬件支持
 
-Atlas 900 A3 PODc
+Atlas 900 A2 PODc 和 Atlas 900 A3 PODc
+
 
 ## 安装
 
 ### 基础环境准备
 
-| 软件 | 版本 |
-| ---- | ---- |
-| Python | 3.11 |
-| CANN | 8.5.1 |
+| software  | version     |
+|-----------|-------------|
+| Python    |  3.11       |
+| CANN      |  8.5.1      |
 
 ### 创建 conda 环境
 
@@ -31,11 +32,11 @@ conda activate roll
 为了能在 ROLL 中正常使用 torch 和 torch_npu，需使用以下命令安装 torch 和 torch_npu：
 
 ```
-# 安装 torch 的 CPU 版本
-pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+# 在预构建镜像外手动安装时，使用 CPU 版 torch
+pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 
-# 安装 torch_npu 2.9.0
-pip install torch_npu==2.9.0
+# 安装与 torch/CANN 匹配的 torch_npu
+pip install torch_npu==2.8.0
 ```
 
 ### 安装 vllm & vllm-ascend
@@ -45,6 +46,7 @@ pip install torch_npu==2.9.0
 ```
 # vllm
 git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm.git
+git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm.git
 cd vllm
 pip install -r requirements/build.txt
 
@@ -52,6 +54,7 @@ VLLM_TARGET_DEVICE=empty pip install -v -e .
 cd ..
 
 # vllm-ascend
+git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm-ascend.git
 git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm-ascend.git
 cd vllm-ascend
 
