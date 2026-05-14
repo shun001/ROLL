@@ -1,12 +1,12 @@
 # ROLL x Ascend
 
-Last updated: 03/13/2026.
+Last updated: 05/14/2026.
 
 We have added support for Huawei Ascend devices in ROLL.
 
 ## Hardware Support 
 
-Atlas 900 A3 PODc
+Atlas 900 A2 PODc and Atlas 900 A3 PODc
 
 ## Installation
 
@@ -31,11 +31,11 @@ conda activate roll
 To use torch and torch_npu in ROLL, install them using the commands below:
 
 ```
-# Use CPU only torch
-pip install torch==2.9.0 torchvision==0.24.0 torchaudio==2.9.0 --index-url https://download.pytorch.org/whl/cpu
+# Use CPU-only torch when installing outside the pre-built image
+pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 
-# Install torch_npu 2.9.0
-pip install torch_npu==2.9.0
+# Install the torch_npu version matching torch/CANN
+pip install torch_npu==2.8.0
 ```
 
 ### Install vllm & vllm-ascend
