@@ -54,7 +54,7 @@ These commands are automatically added to `/root/.bashrc` during the Docker imag
 - **Atlas 900 A2 PODc** → Use `roll:ascend-a2` (`ascend910b1`)
 - **Atlas 900 A3 PODc** → Use `roll:ascend-a3` (`ascend910_9391`)
 
-The current repository does not include `Dockerfile.A2` or `Dockerfile.A3`. If you maintain a custom image, ensure its SOC version matches the target hardware.
+The current repository includes `docker/Dockerfile.A2` and `docker/Dockerfile.A3` for building custom images. If you maintain a custom image, ensure its SOC version matches the target hardware.
 
 ## Dependency Conflicts
 

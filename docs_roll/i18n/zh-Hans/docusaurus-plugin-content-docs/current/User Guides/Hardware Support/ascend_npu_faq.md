@@ -54,7 +54,7 @@ source /usr/local/Ascend/nnal/atb/set_env.sh
 - **Atlas 900 A2 PODc** → 使用 `roll:ascend-a2`（`ascend910b1`）
 - **Atlas 900 A3 PODc** → 使用 `roll:ascend-a3`（`ascend910_9391`）
 
-当前仓库不包含 `Dockerfile.A2` 或 `Dockerfile.A3`。如果维护自定义镜像，请确保 SOC 版本与目标硬件匹配。
+当前仓库包含用于构建自定义镜像的 `docker/Dockerfile.A2` 和 `docker/Dockerfile.A3`。如果维护自定义镜像，请确保 SOC 版本与目标硬件匹配。
 
 ## 依赖冲突
 
