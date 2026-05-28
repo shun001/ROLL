@@ -46,6 +46,7 @@ pip install torch_npu==2.8.0
 ```
 # vllm
 git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm.git
+git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm.git
 cd vllm
 pip install -r requirements/build.txt
 
@@ -53,6 +54,7 @@ VLLM_TARGET_DEVICE=empty pip install -v -e .
 cd ..
 
 # vllm-ascend
+git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm-ascend.git
 git clone -b v0.13.0 --depth 1 https://github.com/vllm-project/vllm-ascend.git
 cd vllm-ascend
 

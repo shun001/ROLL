@@ -801,6 +801,7 @@ class FSDP2InferStrategy(FSDP2StrategyBase):
 
         self.model = model
 
+    @torch.no_grad()
     def forward_step(
         self,
         batch: DataProto,
@@ -1216,9 +1217,7 @@ class FSDP2TrainStrategy(FSDP2InferStrategy, TrainStrategy):
             # PumpkinComment:
             # model.no_sync is replaced by model.set_requires_gradient_sync(False) in FSDP2
             # but also add support for model.no_sync for compatibility
-            sync_context = (
-                self._grad_accumulation_context() if not sync_boundary and not no_sync else contextlib.nullcontext()
-            )
+            sync_context = contextlib.nullcontext()
 
             with (
                 sync_context,
@@ -1266,7 +1265,6 @@ class FSDP2TrainStrategy(FSDP2InferStrategy, TrainStrategy):
                     self.scheduler.step()
                     self.optimizer.zero_grad(set_to_none=True)
 
-        current_platform.empty_cache()
         return metrics
 
     def setup_model_update(self, infer_cluster, model_update_name: str):
